@@ -11,5 +11,7 @@ namespace EventManagement.Data
 
         public DbSet<EventType> EventTypes { get; set; }
 
+        public DbSet<EventDocument> EventDocuments { get; set; }
+
     }
 }
