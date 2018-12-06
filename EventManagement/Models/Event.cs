@@ -21,5 +21,7 @@ namespace EventManagement.Models
         // Navigation properties
         public int EventTypeId { get; set; }
         public EventType EventType { get; set; }
+
+        public List<EventDocument> EventDocuments { get; set; }
     }
 }

@@ -4,14 +4,16 @@ using EventManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventManagement.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20181202180947_AddingDocuments")]
+    partial class AddingDocuments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,25 +44,6 @@ namespace EventManagement.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("EventManagement.Models.EventDocument", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("EventId");
-
-                    b.Property<byte[]>("FileContent");
-
-                    b.Property<string>("FileName");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventId");
-
-                    b.ToTable("EventDocuments");
-                });
-
             modelBuilder.Entity("EventManagement.Models.EventType", b =>
                 {
                     b.Property<int>("EventTypeId")
@@ -82,13 +65,6 @@ namespace EventManagement.Migrations
                         .WithMany()
                         .HasForeignKey("EventTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("EventManagement.Models.EventDocument", b =>
-                {
-                    b.HasOne("EventManagement.Models.Event")
-                        .WithMany("EventDocuments")
-                        .HasForeignKey("EventId");
                 });
 #pragma warning restore 612, 618
         }
