@@ -33,7 +33,12 @@ namespace EventManagement
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes=> {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Event}/{action=List}/{i?}");
+                });
 
         }
     }
