@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Event>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+@foreach (var e in Model)
+{
+    <div>
+        <h3>@e.Name</h3>
+    </div>
+}
+
