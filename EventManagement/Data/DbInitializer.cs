@@ -33,7 +33,9 @@ namespace EventManagement.Data
             var events = new Event[]
             {
                 new Event{EventTypeId=1, Name="Gymnastics Demo"},
-                new Event{EventTypeId=2, Name="Karate Demo"}
+                new Event{EventTypeId=2, Name="Karate Demo"},
+                new Event{EventTypeId=1, Name="Odessa Mama"},
+                new Event{EventTypeId=1, Name="Gymnastics Demo #2"}
             };
 
             foreach (var item in events)

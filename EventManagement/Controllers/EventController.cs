@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EventManagement.Data;
+using EventManagement.Models.ViewModels;
 
 namespace EventManagement.Controllers
 {
@@ -20,6 +21,6 @@ namespace EventManagement.Controllers
             return View();
         }
 
-        public ViewResult List() => View(_context.Events);
+        public ViewResult List() => View(new EventsListViewModel {Events = _context.Events });
     }
 }
