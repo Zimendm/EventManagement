@@ -3,12 +3,10 @@
     ViewData["Title"] = "List";
 }
 
-<h2>Enents</h2>
+<h2>Events</h2>
 
 @foreach (var e in Model)
 {
-    <div>
-        <h3>@e.Name</h3>
-    </div>
+    @Html.Partial("EventSummary",e);
 }
 
