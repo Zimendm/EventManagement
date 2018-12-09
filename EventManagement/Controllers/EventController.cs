@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EventManagement.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventManagement.Controllers
 {
@@ -13,6 +14,7 @@ namespace EventManagement.Controllers
         public EventController(ApplicationDBContext context)
         {
             _context = context;
+            
         }
 
         public IActionResult Index()
@@ -20,6 +22,6 @@ namespace EventManagement.Controllers
             return View();
         }
 
-        public ViewResult List() => View(_context.Events);
+        public ViewResult List() => View(_context.Events.Include(t=>t.EventType));
     }
 }
