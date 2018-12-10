@@ -3,8 +3,6 @@
     ViewData["Title"] = "List";
 }
 
-<h2>Events</h2>
-
 @foreach (var e in Model.Events)
 {
     @Html.Partial("EventSummary",e);

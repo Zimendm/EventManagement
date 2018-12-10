@@ -8,5 +8,7 @@ namespace EventManagement.Models.ViewModels
     public class EventsListViewModel
     {
         public IEnumerable<Event> Events { get; set; }
+
+        public string CurrentEventType { get; set; }
     }
 }

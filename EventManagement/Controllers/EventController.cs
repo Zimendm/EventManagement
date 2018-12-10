@@ -22,6 +22,18 @@ namespace EventManagement.Controllers
             return View();
         }
 
-        public ViewResult List() => View(new EventsListViewModel {Events = _context.Events.Include(t=>t.EventType) });
+        public ViewResult List(string eventType)
+        {
+            var events = new EventsListViewModel();
+            events.Events = _context.Events.Include(t => t.EventType);
+            events.CurrentEventType = eventType;
+
+            if (eventType!=null)
+            {
+                events.Events = events.Events.Where(e=>e.EventType.Name==eventType);
+            }
+
+            return View(events);
+        }
     }
 }

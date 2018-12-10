@@ -35,11 +35,18 @@ namespace EventManagement
             app.UseStaticFiles();
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes=> {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Event}/{action=List}/{i?}");
-                });
 
+               
+                routes.MapRoute(
+                    name: null,
+                    template: "{eventType}",
+                    defaults: new { controller="Event", action="List"});
+
+                routes.MapRoute(
+                   name: null,
+                   template: "{controller=Event}/{action=List}/{i?}");
+
+            });
         }
     }
 }

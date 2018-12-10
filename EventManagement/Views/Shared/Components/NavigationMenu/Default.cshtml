@@ -1,0 +1,17 @@
+﻿@model IEnumerable<string>
+
+<a class="btn btn-block btn-outline-secondary"
+   asp-action="List"
+   asp-controller="Event"
+   asp-route-eventType="">
+    Home
+</a>
+@foreach (string eventType in Model)
+{
+    <a class="btn btn-block @(eventType == ViewBag.SelectedCategory ? "btn-primary": "btn-outline-secondary")"
+       asp-action="List"
+       asp-controller="Event"
+       asp-route-eventType="@eventType">
+        @eventType
+    </a>
+}
