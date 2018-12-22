@@ -25,7 +25,9 @@ namespace EventManagement.Controllers
         public ViewResult List(string eventType)
         {
             var events = new EventsListViewModel();
-            events.Events = _context.Events.Include(t => t.EventType);
+            events.Events = _context.Events
+                .Include(t => t.EventType)
+                .AsNoTracking();
             events.CurrentEventType = eventType;
 
             if (eventType!=null)
